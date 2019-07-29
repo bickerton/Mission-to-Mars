@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Mission to Mars</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://code.jquery.com/jquery.js"></script>
+  <script src="https://netdna.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+  <style>
+      body, .jumbotron {background-color: #FBF5F3;}
+      .btn {
+        background-color: rgb(17, 95, 138);
+        border: none;
+      }
+      .weather {
+        background-color: rgb(104, 16, 8);
+        color: white;
+      }
+      .weather h4, .hemisphere-titles {
+        text-align: center;
+      }
+      .footer {text-align: center;
+      } 
+    </style>
+    </head>
+  
+</head>
+  
+<body>
+  <div class="container-fluid">
+    <div class="jumbotron text-center">
+      <h1>Mission to Mars</h1>
+      <p><a class="btn btn-primary btn-lg" href="/scrape" role="button">Get Data!</a></p>
+    </div>
+
+  <!---DATA--->  
+    <div class="row" id="mars-data">
+      <!---News-->
+      <div class="col-md-12 col-sm-12">
+        <h2 class="news">Latest Mars News</h2>
+        <h4 class="heading">{{mars_data.news_title}}</h4>
+        <p>{{mars_data.news_paragraph}}</p>
+      </div>
+      <!---Image-->
+      <div class="col-md-8 col-sm-12">
+        <h2 class="featured-image">Featured Mars Image</h2>
+        <img src= {{ mars_data.featured_image_url }} height=auto width=750px>
+      </div>   
+      <!---Weather--->
+      <div class="col-md-4 col-sm-12">
+        <div class="panel panel-default">
+          <div class = "panel-body weather">
+              <h4>Current Tweets on Mars Weather</h4>
+              {{ mars_data.mars_weather }}
+            </div>
+          </div>
+      <!---Facts Table--->  
+          <h4>Mars Facts</h4>
+          <p>{{ mars_data.mars_facts | safe}}</p>
+        </div>
+      </div>
+      <!---Hemispheres--->
+      <div class="panel panel-default">
+        <div class="panel-body">
+          <h4 id="hemisphere_title" style="text-align: center;">Mars Hemispheres</h4>
+          <hr>
+          <div class="row">
+            <div class="col-md-6 hemispheres">
+              <div class="panel panel-default">
+                <div class="panel-header">
+                  <img src = {{ mars_data.hemispheres_title_and_image[0].url_image}} width="100%">
+                </div>
+                <div class="panel-body hemisphere-titles">
+                  <h4>{{ mars_data.hemispheres_title_and_image[0].title }}</h4>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6 hemispheres">
+              <div class="panel panel-default">
+                <div class="panel-header">
+                  <img src = {{ mars_data.hemispheres_title_and_image[1].url_image}} width="100%">
+                </div>
+                <div class="panel-body hemisphere-titles">
+                  <h4>{{ mars_data.hemispheres_title_and_image[1].title }}</h4>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6 hemispheres">
+              <div class="panel panel-default">
+                <div class="panel-header">
+                  <img src = {{ mars_data.hemispheres_title_and_image[2].url_image}} width="100%">
+                </div>
+                <div class="panel-body hemisphere-titles">
+                  <h4>{{ mars_data.hemispheres_title_and_image[2].title }}</h4>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6 hemispheres">
+              <div class="panel panel-default">
+                <div class="panel-header">
+                  <img src = {{ mars_data.hemispheres_title_and_image[3].url_image}} width="100%">
+                </div>
+                <div class="panel-body hemisphere-titles">
+                  <h4>{{ mars_data.hemispheres_title_and_image[3].title }}</h4>
+                </div>
+              </div>
+            </div>
+          </div>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <div class="footer"></div>
+  </footer>
+
+</body>
+
+</html>
+
+        
+    
+  </div>
+  </div>
+</body>
+
+</html>
